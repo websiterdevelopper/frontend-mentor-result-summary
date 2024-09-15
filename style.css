@@ -1,0 +1,218 @@
+/* Font */
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
+
+/* Variables */
+:root {
+  --reaction: hsl(0, 100%, 67%);
+  --reaction-bg: hsla(0, 100%, 67%, 0.1);
+
+  --memory: hsl(39, 100%, 56%);
+  --memory-bg: hsla(39, 100%, 56%, 0.1);
+
+  --verbal: hsl(166, 100%, 37%);
+  --verbal-bg: hsla(166, 100%, 37%, 0.1);
+
+  --visual: hsl(234, 85%, 45%);
+  --visual-bg: hsla(234, 85%, 45%, 0.1);
+
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+
+  --stat-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+
+  --circle-gradient: linear-gradient(
+    to bottom,
+    var(--violet-blue),
+    var(--persian-blue)
+  );
+
+  --circle-txt-color: hsl(221, 100%, 96%);
+  --txt-clr: hsl(241, 100%, 89%);
+  --btn-bg: hsl(224, 30%, 27%);
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hanken Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+/* Main */
+
+.main-card {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px 0 rgba(174, 172, 172, 0.421);
+  border-radius: 20px;
+}
+
+.main-card .result {
+  background-image: var(--stat-gradient);
+  padding: 25px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  flex-basis: 50%;
+}
+
+.main-card .result h2 {
+  color: var(--txt-clr);
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+
+.main-card .result-circle {
+  background-image: var(--circle-gradient);
+  padding: 1rem;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card .result-circle span {
+  font-weight: 800;
+  display: block;
+  font-size: 3rem;
+}
+
+.main-card .result-circle p {
+  color: var(--txt-clr);
+}
+
+.main-card .result h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: var(--circle-txt-color);
+}
+
+.main-card .stats {
+  padding: 25px;
+  flex-basis: 50%;
+}
+
+.main-card .stats h3 {
+  font-size: 1.25rem;
+  color: var(--btn-bg);
+  margin: 0 0 1.25rem;
+}
+
+.main-card .stats ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+.main-card .stats ul li .stat-name {
+  display: flex;
+}
+
+.main-card .stats ul li img {
+  margin-right: 10px;
+}
+
+.main-card .stats ul li:first-child {
+  color: var(--reaction);
+  background-color: var(--reaction-bg);
+}
+
+.main-card .stats ul li:nth-child(2) {
+  color: var(--memory);
+  background-color: var(--memory-bg);
+}
+
+.main-card .stats ul li:nth-child(3) {
+  color: var(--verbal);
+  background-color: var(--verbal-bg);
+}
+
+.main-card .stats ul li:last-child {
+  color: var(--visual);
+  background-color: var(--visual-bg);
+}
+
+.main-card .stats ul li span {
+  color: var(--btn-bg);
+  font-weight: 700;
+}
+
+.main-card .stats ul li p {
+  color: rgb(0 0 0 / 0.4);
+  font-weight: 700;
+}
+
+.main-card button {
+  outline: none;
+  border: none;
+  display: block;
+  border-radius: 2rem;
+  width: 100%;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+  padding: 1rem 1.5rem;
+  background-color: var(--btn-bg);
+  cursor: pointer;
+  margin: 25px 0 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.main-card button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: var(--stat-gradient);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 2rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.3s;
+}
+
+.main-card button:hover::before {
+  transform: scaleX(1);
+}
+
+@media (width < 680px) {
+  .main-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
